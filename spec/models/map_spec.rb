@@ -18,7 +18,7 @@ RSpec.describe Map, type: :model do
 
   describe '#find_all_routes' do
     it 'return valid paths from A to B' do
-      expect(map_info.find_all_routes(:A,:B)).to eq( {route_path: "AB", distance: 10} )
+      expect(map_info.find_all_routes(:A,:B)).to eq( [ {route_path: "AB", distance: 10} ] )
     end
 
     it 'return valid paths from A to D' do

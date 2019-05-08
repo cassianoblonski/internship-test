@@ -9,7 +9,7 @@ class Map < ApplicationRecord
 
     route_path ||= origin
 
-    return { route_path: "#{route_path}#{dest}", distance: km+point_connections[origin][dest] } if point_connections[origin].dig(dest)
+    return [ { route_path: "#{route_path}#{dest}", distance: km+point_connections[origin][dest] } ] if point_connections[origin].dig(dest)
 
     point_connections[origin].flat_map do |key,value|
       find_all_routes(key, dest, "#{route_path}#{key}", km+value)
